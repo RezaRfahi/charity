@@ -1,2 +1,0 @@
-# charity
-Project for university
