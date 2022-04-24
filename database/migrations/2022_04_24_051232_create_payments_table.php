@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->text('serial');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('price');
             $table->timestamps();
         });
     }
