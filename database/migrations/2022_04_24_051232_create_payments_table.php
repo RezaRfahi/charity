@@ -15,9 +15,12 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->text('serial');
+            $table->string('serial')->index();
+            $table->enum('status',[
+                'pending','successful','failed'
+            ])->default('pending');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('price');
+            $table->unsignedInteger('price');
             $table->timestamps();
         });
     }
