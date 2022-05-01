@@ -23,11 +23,12 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/index', function () {
         return view('dashboard');
     })->name('dashboard');
-});
 
 Route::prefix('admin')->group(function(){
     Route::get('/',[AdminController::class,'index'])->name('admin/index');
+});
+
 });
