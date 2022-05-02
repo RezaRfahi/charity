@@ -116,7 +116,7 @@
               </li>
               <li class="nav-header">مثال‌ها</li>
               <li class="nav-item">
-                <a href="pages/calendar.html" class="nav-link">
+                <a href="/admin/calender" class="nav-link">
                   <i class="nav-icon fa fa-calendar"></i>
                   <p>
                     تقویم

@@ -29,6 +29,8 @@ Route::middleware([
 
 Route::prefix('admin')->group(function(){
     Route::get('/',[AdminController::class,'index'])->name('admin/index');
+    Route::get('/calender',[AdminController::class,'calender'])->name('admin/calender');
+
 });
 
 });

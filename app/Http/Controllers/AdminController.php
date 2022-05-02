@@ -10,4 +10,8 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+    public function calender()
+    {
+        return view('admin.calender');
+    }
 }
