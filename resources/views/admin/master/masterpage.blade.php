@@ -30,6 +30,10 @@
   <link rel="stylesheet" href={{asset('css/bootstrap-rtl.min.css')}}>
   <!-- template rtl version -->
   <link rel="stylesheet" href={{asset('css/custom-style.css')}}>
+   <!-- fullCalendar 2.2.5-->
+   <link rel="stylesheet" href="{{asset('fullcalendar/fullcalendar.min.css')}}">
+   <link rel="stylesheet" href="{{asset('fullcalendar/fullcalendar.print.css')}}" media="print">
+
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -108,6 +112,8 @@
 <script src={{asset('js/pages/dashboard.js')}}></script>
 <!-- AdminLTE for demo purposes -->
 <script src={{asset('js/demo.js')}}></script>
-
+  <!-- fullCalendar 2.2.5 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+  <script src="{{asset('fullcalendar/fullcalendar.min.js')}}"></script>
 </body>
 </html>

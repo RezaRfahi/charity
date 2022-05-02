@@ -12,6 +12,6 @@ class AdminController extends Controller
     }
     public function calender()
     {
-        return view('admin.calender');
+        return view('admin.calender.calender');
     }
 }
