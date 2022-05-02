@@ -47,52 +47,7 @@
           day  : 'روز'
         },
         //Random default events
-        events    : [
-          {
-            title          : 'همه رویدادها',
-            start          : new Date(y, m, 1),
-            backgroundColor: '#f56954', //red
-            borderColor    : '#f56954' //red
-          },
-          {
-            title          : 'ایوند بلند',
-            start          : new Date(y, m, d - 5),
-            end            : new Date(y, m, d - 2),
-            backgroundColor: '#f39c12', //yellow
-            borderColor    : '#f39c12' //yellow
-          },
-          {
-            title          : 'قرار ملاقات',
-            start          : new Date(y, m, d, 10, 30),
-            allDay         : false,
-            backgroundColor: '#0073b7', //Blue
-            borderColor    : '#0073b7' //Blue
-          },
-          {
-            title          : 'ناهار',
-            start          : new Date(y, m, d, 12, 0),
-            end            : new Date(y, m, d, 14, 0),
-            allDay         : false,
-            backgroundColor: '#00c0ef', //Info (aqua)
-            borderColor    : '#00c0ef' //Info (aqua)
-          },
-          {
-            title          : 'جشن تولد',
-            start          : new Date(y, m, d + 1, 19, 0),
-            end            : new Date(y, m, d + 1, 22, 30),
-            allDay         : false,
-            backgroundColor: '#00a65a', //Success (green)
-            borderColor    : '#00a65a' //Success (green)
-          },
-          {
-            title          : 'چک کردن ایمیل‌ها',
-            start          : new Date(y, m, 28),
-            end            : new Date(y, m, 29),
-            url            : 'http://google.com/',
-            backgroundColor: '#3c8dbc', //Primary (light-blue)
-            borderColor    : '#3c8dbc' //Primary (light-blue)
-          }
-        ],
+
         editable  : true,
         droppable : true, // this allows things to be dropped onto the calendar !!!
         drop      : function (date, allDay) { // this function is called when something is dropped
@@ -144,21 +99,7 @@
           return
         }
 
-        //Create events
-        var event = $('<div />')
-        event.css({
-          'background-color': currColor,
-          'border-color'    : currColor,
-          'color'           : '#fff'
-        }).addClass('external-event')
-        event.html(val)
-        $('#external-events').prepend(event)
 
-        //Add draggable funtionality
-        ini_events(event)
-
-        //Remove event from text input
-        $('#new-event').val('')
       })
     })
   </script>
