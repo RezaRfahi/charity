@@ -37,13 +37,13 @@
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                <div dir="rtl" class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     //logo source
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
+                    <div dir="rtl" class="grid grid-cols-1 md:grid-cols-2">
+                        <div  class="p-6">
                             <div class="flex items-center">
 
                                     <object data="{{asset('svg/university.svg')}}" class="w-8 h-8 text-gray-500">
@@ -54,8 +54,8 @@
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
+                                <div dir="rtl" class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    دانشکده فنی حرفه ای شهید شمسی  پور نهران
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,9 @@
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
+                                <div dir="rtl" class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    سید رضا رفاهی,<br>
+                                    ترم ۴ کاردانی نرم افزار
                                 </div>
                             </div>
                         </div>
@@ -83,8 +84,8 @@
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
+                                <div dir="rtl" class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                جناب آقای مهندس عادلی نیا
                                 </div>
                             </div>
                         </div>
@@ -99,7 +100,8 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
+                                    سامانه خیریه برای کمک های دلخواه<br>
+                                    به همراه پنل ادمین
                                 </div>
                             </div>
                         </div>
