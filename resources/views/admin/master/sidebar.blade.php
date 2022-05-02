@@ -26,7 +26,7 @@
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item has-treeview menu-open">
-                <a href="/admin/index" class="nav-link active">
+                <a href="/admin" class="nav-link active">
                   <i class="nav-icon fa fa-dashboard"></i>
                   <p>
                     داشبورد
@@ -120,7 +120,6 @@
                   <i class="nav-icon fa fa-calendar"></i>
                   <p>
                     تقویم
-                    <span class="badge badge-info right">2</span>
                   </p>
                 </a>
               </li>
@@ -158,16 +157,6 @@
                     </a>
                   </li>
                 </ul>
-                <li class="nav-icon">
-                    <form method="POST" action="{{ route('logout') }}" x-data>
-                        @csrf
-
-                        <button href="{{ route('logout') }}" class="btn btn-secondary "
-                        type="submit"@click.prevent="$root.submit();">
-                        {{ __('خروج') }}
-                        </button>
-                    </form>
-                  </li>
               </li>
               </ul>
           </nav>
