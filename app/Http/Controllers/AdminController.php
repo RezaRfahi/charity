@@ -19,4 +19,20 @@ class AdminController extends Controller
         $admin=Auth::user();
         return view('admin.calender.calender',compact('admin'));
     }
+    public function memberView()
+    {
+        $admin=Auth::user();
+        return view('admin.member.memberView',compact('admin'));
+    }
+    public function adminView()
+    {
+        $admin=Auth::user();
+        return view('admin.adminManage.adminView',compact('admin'));
+    }
+    public function adminAdd()
+    {
+        $admin=Auth::user();
+        return view('admin.adminManage.adminAdd',compact('admin'));
+    }
+
 }

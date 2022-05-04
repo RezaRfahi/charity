@@ -37,7 +37,6 @@
 
 </head>
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper">
  <!-- Navbar -->
  @include('admin.master.navbar')
 
@@ -53,7 +52,6 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->

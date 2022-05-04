@@ -43,7 +43,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="pages/charts/chartjs.html" class="nav-link">
+                    <a href="{{route('membersview')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>مشاهده</p>
                     </a>
@@ -66,13 +66,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="pages/forms/general.html" class="nav-link">
+                    <a href="{{route('adminsview')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>مشاهده</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/forms/advanced.html" class="nav-link">
+                    <a href="{{route('adminadd')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>افزودن</p>
                     </a>

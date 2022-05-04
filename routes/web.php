@@ -33,7 +33,15 @@ Route::prefix('admin')->group(function()
 {
     Route::get('/',[AdminController::class,'index'])->name('admin/index');
     Route::get('/calender',[AdminController::class,'calender'])->name('admin/calender');
-
+    Route::prefix('adminsmanage')->group(function()
+    {
+        Route::get('view',[AdminController::class,'adminView'])->name('adminsview');
+        Route::get('add',[AdminController::class,'adminAdd'])->name('adminadd');
+    });
+    Route::prefix('membersmanage')->group(function()
+    {
+        Route::get('view',[AdminController::class,'memberView'])->name('membersview');
+    });
 });
 
 });
