@@ -35,7 +35,7 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-pie-chart"></i>
+                  <i class="nav-icon fa fa-user"></i>
                   <p>
                     مدیریت کاربران
                     <i class="right fa fa-angle-left"></i>
@@ -51,20 +51,14 @@
                   <li class="nav-item">
                     <a href="pages/charts/flot.html" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p>نمودار Flot</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/charts/inline.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>نمودار Inline</p>
+                      <p>افزودن</p>
                     </a>
                   </li>
                 </ul>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-edit"></i>
+                  <i class="nav-icon fa fa-user-secret"></i>
                   <p>
                     مدیریت ادمین ها
                     <i class="fa fa-angle-left right"></i>
@@ -74,19 +68,13 @@
                   <li class="nav-item">
                     <a href="pages/forms/general.html" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p>اجزا عمومی</p>
+                      <p>مشاهده</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="pages/forms/advanced.html" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p>پیشرفته</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/forms/editors.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>ویشرایشگر</p>
+                      <p>افزودن</p>
                     </a>
                   </li>
                 </ul>
