@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
     return view('welcome');
 });
 
@@ -27,7 +29,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function()
+{
     Route::get('/',[AdminController::class,'index'])->name('admin/index');
     Route::get('/calender',[AdminController::class,'calender'])->name('admin/calender');
 
