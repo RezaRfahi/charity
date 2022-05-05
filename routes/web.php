@@ -33,6 +33,7 @@ Route::prefix('admin')->group(function()
 {
     Route::get('/',[AdminController::class,'index'])->name('admin/index');
     Route::get('/calender',[AdminController::class,'calender'])->name('admin/calender');
+    Route::get('/session',[AdminController::class,'session'])->name('admin/session');
     Route::prefix('adminsmanage')->group(function()
     {
         Route::get('view',[AdminController::class,'adminView'])->name('adminsview');

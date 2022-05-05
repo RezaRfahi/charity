@@ -95,9 +95,9 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/tables/data.html" class="nav-link">
+                    <a href="{{route('admin/session')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p>جداول داده</p>
+                      <p>نشست ها</p>
                     </a>
                   </li>
                 </ul>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -21,8 +22,10 @@ class AdminController extends Controller
     }
     public function memberView()
     {
+        $users=User::all();
+
         $admin=Auth::user();
-        return view('admin.member.memberView',compact('admin'));
+        return view('admin.member.memberView',compact('admin','users'));
     }
     public function adminView()
     {
@@ -33,6 +36,12 @@ class AdminController extends Controller
     {
         $admin=Auth::user();
         return view('admin.adminManage.adminAdd',compact('admin'));
+    }
+
+    public function session()
+    {
+        $admin=Auth::user();
+        return view('admin.info.session',compact('admin'));
     }
 
 }

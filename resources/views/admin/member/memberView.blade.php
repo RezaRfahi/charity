@@ -15,15 +15,16 @@
           <div class="card-body">
             <table dir="ltr" id="membertable" class="table table-sm">
               <tbody>
+              @foreach ($users as $user)
               <tr>
-                <td><img src="{{asset('img/avatar3.png')}}" class="direct-chat-img" alt=""></td>
-                <td>reza
-                </td>
-                <td>reza@gmail.com</td>
-                <td><form action="#" method="post">
+                <td><img src="{{$user->profile_photo_url}}" class="direct-chat-img" alt=""></td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td><form action="/deleteuser/{{$user->id}}" method="post">
                 <button class="btn btn-light" type="submit">حذف کاربر</button>
                 </form></td>
               </tr>
+              @endforeach
             </tbody>
             </table>
           </div>
