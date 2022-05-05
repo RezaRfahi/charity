@@ -24,7 +24,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h4>{{$payments->count()}}</h4>
 
                 <p>تعداد کل پرداختها</p>
               </div>
@@ -38,7 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h4>{{$payments->sum('price')}}<span style="font-size: 70%"> تومان</span><sup style="font-size: 20px"></sup></h4>
 
                 <p>جمع کل مبالغ</p>
               </div>
@@ -52,7 +52,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h4>{{$users->count()}}</h4>
 
                 <p>تعداد کاربران</p>
               </div>
@@ -66,9 +66,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h4>{{$sessionsCount}}</h4>
 
-                <p>کل بازدید ها</p>
+                <p>کاربران فعال</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

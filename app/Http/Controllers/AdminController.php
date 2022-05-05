@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+
 
 class AdminController extends Controller
 {
 
     public function index()
     {
+        $sessionsCount=DB::table('sessions')->select('*')->count();
+        $payments=Payment::all();
+        $users=User::all();
         $admin=Auth::user();
-        return view('admin.index',compact('admin'));
+        return view('admin.index',compact('admin','users','payments','sessionsCount'));
     }
     public function calender()
     {
