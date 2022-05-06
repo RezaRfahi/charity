@@ -133,7 +133,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/login.html" class="nav-link">
+                    <a href="{{route('payments/all')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>کل پرداختها</p>
                     </a>

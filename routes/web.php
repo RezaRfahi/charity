@@ -34,6 +34,9 @@ Route::prefix('admin')->group(function()
     Route::get('/',[AdminController::class,'index'])->name('admin/index');
     Route::get('/calender',[AdminController::class,'calender'])->name('admin/calender');
     Route::get('/session',[AdminController::class,'session'])->name('admin/session');
+    Route::prefix('payments')->group(function(){
+        Route::get('/all',[AdminController::class,'allPayments'])->name('payments/all');
+    });
     Route::prefix('adminsmanage')->group(function()
     {
         Route::get('view',[AdminController::class,'adminView'])->name('adminsview');
