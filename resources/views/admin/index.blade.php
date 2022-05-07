@@ -38,7 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h4>{{$payments->sum('price')}}<span style="font-size: 70%"> تومان</span><sup style="font-size: 20px"></sup></h4>
+                <h4>{{$sumPay}}<span style="font-size: 70%"> تومان</span><sup style="font-size: 20px"></sup></h4>
 
                 <p>جمع کل مبالغ</p>
               </div>

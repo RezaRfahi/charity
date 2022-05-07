@@ -18,9 +18,10 @@ class AdminController extends Controller
     {
         $sessionsCount=DB::table('sessions')->select('*')->count();
         $payments=Payment::all();
+        $sumPay=DB::table('payments')->where('status','successful')->sum('price');
         $users=User::all();
         $admin=Auth::user();
-        return view('admin.index',compact('admin','users','payments','sessionsCount'));
+        return view('admin.index',compact('admin','users','payments','sessionsCount','sumPay'));
     }
     public function calender()
     {
