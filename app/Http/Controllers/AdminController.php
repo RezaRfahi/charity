@@ -43,8 +43,9 @@ class AdminController extends Controller
     }
     public function adminAdd()
     {
+        $users=User::query()->doesntHave('permissions')->get();
         $admin=Auth::user();
-        return view('admin.adminManage.adminAdd',compact('admin'));
+        return view('admin.adminManage.adminAdd',compact('admin','users'));
     }
 
     public function session()
