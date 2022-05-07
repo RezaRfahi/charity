@@ -36,15 +36,25 @@
                       <th>سریال پرداخت</th>
                       <th>مبلغ</th>
                       <th>وضعیت</th>
+                      <th>تاریخ و زمان</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach ($allPayments as $pay)
                     <tr>
-                      <td>رضا رفاهی</td>
-                      <td>455-981-221</td>
-                      <td>150000 تومان</td>
-                      <td style="color: green">موفق</td>
-                    </tr>
+                        <td>{{$pay->name}}</td>
+                        <td>{{$pay->serial}}</td>
+                        <td>{{$pay->price}}</td>
+                        @if ($pay->status=='successful')
+                        <td style="color: green">موفق</td>
+                        @elseif ($pay->status=='failed')
+                        <td style="color: red">ناموفق</td>
+                        @else
+                        <td style="color: gray">در انتظار نهایی شدن</td>
+                        @endif
+                        <td>{{$pay->created_at}}</td>
+                      </tr>
+                    @endforeach
                     </tbody>
                   </table>
                 </div>
