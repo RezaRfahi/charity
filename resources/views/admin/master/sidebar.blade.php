@@ -102,7 +102,6 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-header">مثال‌ها</li>
               <li class="nav-item">
                 <a href="/admin/calender" class="nav-link">
                   <i class="nav-icon fa fa-calendar"></i>

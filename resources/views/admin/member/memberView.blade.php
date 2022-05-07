@@ -20,9 +20,15 @@
                 <td><img src="{{$user->profile_photo_url}}" class="direct-chat-img" alt=""></td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-                <td><form action="/deleteuser/{{$user->id}}" method="post">
+                <td>
+                @if ($user->id!=$admin->id)
+
+                <form action="/deleteuser/{{$user->id}}" method="post">
                 <button class="btn btn-light" type="submit">حذف کاربر</button>
-                </form></td>
+                </form>
+
+                @endif
+            </td>
               </tr>
               @endforeach
             </tbody>
