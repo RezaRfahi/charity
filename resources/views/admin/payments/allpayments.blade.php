@@ -66,7 +66,9 @@
               <!-- /.row -->
 
               <!-- this row will not appear when printing -->
-              <div class="row no-print">
+              <div class="row no-print" style="
+              bottom: 0.75%;
+              position: fixed;">
                 <div class="col-12">
                   <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> پرینت </a>
                   </div>
