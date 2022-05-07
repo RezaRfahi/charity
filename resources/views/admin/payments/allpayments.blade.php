@@ -42,7 +42,7 @@
                     <tbody>
                     @foreach ($allPayments as $pay)
                     <tr>
-                        <td>{{$pay->name}}</td>
+                        <td>{{$pay->user->name}}</td>
                         <td>{{$pay->serial}}</td>
                         <td>{{$pay->price}}</td>
                         @if ($pay->status=='successful')

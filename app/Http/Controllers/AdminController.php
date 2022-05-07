@@ -55,15 +55,8 @@ class AdminController extends Controller
 
     public function allPayments()
     {
-        $allPayments = DB::table('payments')
-        ->join('users', 'user_id', '=', 'users.id')
-        ->select(
-            'users.name',
-            'payments.serial',
-            'payments.price',
-            'payments.status',
-            'payments.created_at'
-        )
+        $allPayments = Payment::query()
+        ->with('user:name,id')
         ->get();
         $admin=Auth::user();
         return view('admin.payments.allpayments',compact('admin','allPayments'));
