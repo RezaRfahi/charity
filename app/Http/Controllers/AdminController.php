@@ -37,8 +37,9 @@ class AdminController extends Controller
     }
     public function adminView()
     {
+        $admins = User::whereHas('permissions')->get();
         $admin=Auth::user();
-        return view('admin.adminManage.adminView',compact('admin'));
+        return view('admin.adminManage.adminView',compact('admin','admins'));
     }
     public function adminAdd()
     {
