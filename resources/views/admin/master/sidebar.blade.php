@@ -137,12 +137,6 @@
                       <p>کل پرداختها</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="pages/examples/register.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>صفحه عضویت</p>
-                    </a>
-                  </li>
                 </ul>
               </li>
               </ul>
