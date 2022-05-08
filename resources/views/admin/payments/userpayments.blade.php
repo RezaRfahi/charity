@@ -19,7 +19,7 @@
               <tr>
                 <td><img src="{{$user->profile_photo_url}}" class="direct-chat-img" alt=""></td>
                 <td>{{$user->name}}</td>
-                <td><a class="btn btn-light" type="button">مشاهده لیست پرداخت</a></td>
+                <td><a href="{{route('payments/view',$user->id)}}" class="btn btn-light" type="button">مشاهده لیست پرداخت</a></td>
               </tr>
               @endforeach
             </tbody>

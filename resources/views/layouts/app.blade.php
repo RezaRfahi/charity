@@ -10,6 +10,13 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <!-- bootstrap rtl -->
+<link rel="stylesheet" href={{asset('css/bootstrap-rtl.min.css')}}>
+<!-- template rtl version -->
+<link rel="stylesheet" href={{asset('css/custom-style.css')}}>
+<!-- Content Wrapper. Contains page content -->
+
+
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 

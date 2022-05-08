@@ -1,19 +1,24 @@
-@extends('admin.master.masterpage')
 
-@section('Content')
+
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('ShamsiPour') }}
+        </h2>
+    </x-slot>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href={{asset('font-awesome/css/font-awesome.min.css') }}>
+<!-- Theme style -->
+<link rel="stylesheet" href={{asset('css/adminlte.min.css') }}>
+<!-- bootstrap rtl -->
+<link rel="stylesheet" href={{asset('css/bootstrap-rtl.min.css')}}>
+<!-- template rtl version -->
+<link rel="stylesheet" href={{asset('css/custom-style.css')}}>
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
 
-    <section class="content">
-      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="callout callout-info">
-              <h5><i class="fa fa-info"></i> نکته :</h5>
-              این صفحه مناسب برای پرینت طراحی شده است
-            </div>
-
 
             <!-- Main content -->
             <div class="invoice p-3 mb-3">
@@ -103,8 +108,6 @@
             <!-- /.invoice -->
           </div><!-- /.col -->
         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
     <!-- /.content -->
-  </div>
-@endsection
+
+</x-app-layout>

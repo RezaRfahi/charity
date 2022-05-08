@@ -5,7 +5,6 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Main content -->
-    <section class="content">
       <div class="row">
         <div class="col-12">
           <div class="card">
@@ -40,7 +39,6 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-    </section>
     <!-- /.content -->
   </div>  <!-- /.content -->
 

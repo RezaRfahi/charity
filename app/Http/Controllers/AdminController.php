@@ -70,6 +70,7 @@ class AdminController extends Controller
     {
         $user=User::query()->find($id);
         $user_payments=$user->payments;
-        return view('admin.payments.paymentsview',compact('user','user_payments'));
+        $sum_payments=Payment::query()->where([['user_id',$id],['status','successful']])->sum('price');
+        return view('admin.payments.paymentsview',compact('user','user_payments','sum_payments'));
     }
 }
