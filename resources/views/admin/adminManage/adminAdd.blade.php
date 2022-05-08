@@ -18,7 +18,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>
-                @if ($user->id!=$admin->id)
+                @if ($user->id!=auth()->user()->id)
 
                 <form action="/addadmin/{{$user->id}}" method="post">
                 <button class="btn btn-light" type="submit">افزودن به مدیران</button>

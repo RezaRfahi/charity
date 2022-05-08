@@ -29,15 +29,15 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    <strong>محمدحسن قلی</strong><br>
+                    <strong>{{$user->name}}</strong><br>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <strong>mhasahn_gholi@gmail.com</strong><br>
+                    <strong>{{$user->email}}</strong><br>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <b>ساخت اکانت : ۱۴۰۰/۰۱/۱۴</b><br>
+                  <b>ساخت اکانت : {{$user->created_at}}</b><br>
                 </div>
                 <!-- /.col -->
               </div>
@@ -56,13 +56,21 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>455-981-221</td>
-                      <td>150000 تومان</td>
-                      <td>موفق</td>
-                      <td>۱۴۰۰</td>
-                      <td></td>
-                    </tr>
+                   @foreach ($user_payments as $user_pay)
+                   <tr>
+                    <td>{{$user_pay->serial}}</td>
+                    <td>{{$user_pay->price}} تومان</td>
+                    @if ($user_pay->status=='successful')
+                    <td style="color: green">موفق</td>
+                    @elseif ($user_pay->status=='failed')
+                    <td style="color: red">ناموفق</td>
+                    @else
+                    <td style="color: gray">در انتظار نهایی شدن</td>
+                    @endif
+                    <td>{{$user_pay->created_at}}</td>
+                    <td></td>
+                  </tr>
+                   @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -75,7 +83,7 @@
                 <div class="col-6">
 
                   <div class="table-responsive">
-                        <label style="width:50%">مبلغ کل :</label>
+                        <label style="width:50%">کل مبلغ پرداخت شده :</label>
                         <label>1,300,000 تومان</label>
                   </div>
                 </div>

@@ -22,7 +22,7 @@
                   <td>{{$adminData->name}}</td>
                   <td>{{$adminData->email}}</td>
                   <td>
-                  @if ($admin->id!=$adminData->id)
+                  @if (auth()->user()->id!=$adminData->id)
                   <form action="/deleteuser/{{$adminData->id}}" method="post">
                 <button class="btn btn-light" type="submit">حذف مدیر</button>
                 </form>

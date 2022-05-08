@@ -20,42 +20,36 @@ class AdminController extends Controller
         $payments=Payment::all();
         $sumPay=DB::table('payments')->where('status','successful')->sum('price');
         $users=User::all();
-        $admin=Auth::user();
         return view('admin.index',compact('admin','users','payments','sessionsCount','sumPay'));
     }
 
     public function calender()
     {
-        $admin=Auth::user();
-        return view('admin.calender.calender',compact('admin'));
+        return view('admin.calender.calender');
     }
 
     public function memberView()
     {
         $users=User::all();
-
-        $admin=Auth::user();
-        return view('admin.member.memberView',compact('admin','users'));
+        return view('admin.member.memberView',compact('users'));
     }
 
     public function adminView()
     {
         $admins = User::whereHas('permissions')->get();
-        $admin=Auth::user();
-        return view('admin.adminManage.adminView',compact('admin','admins'));
+        return view('admin.adminManage.adminView',compact('admins'));
     }
 
     public function adminAdd()
     {
         $users=User::query()->doesntHave('permissions')->get();
-        $admin=Auth::user();
-        return view('admin.adminManage.adminAdd',compact('admin','users'));
+        return view('admin.adminManage.adminAdd',compact('users'));
     }
 
     public function session()
     {
         $admin=Auth::user();
-        return view('admin.info.session',compact('admin'));
+        return view('admin.info.session');
     }
 
     public function allPayments()
@@ -63,21 +57,19 @@ class AdminController extends Controller
         $allPayments = Payment::query()
         ->with('user:name,id')
         ->get();
-        $admin=Auth::user();
-        return view('admin.payments.allpayments',compact('admin','allPayments'));
+        return view('admin.payments.allpayments',compact('allPayments'));
     }
 
     public function userPayments()
     {
         $users=User::all();
-        $admin=Auth::user();
-        return view('admin.payments.userpayments',compact('admin','users'));
+        return view('admin.payments.userpayments',compact('users'));
     }
 
     public function paymentsView($id)
     {
-        Payment::query()->where('id',$id)->get();
-        $admin=Auth::user();
-        return view('admin.payments.paymentsview',compact('admin'));
+        $user=User::query()->find($id);
+        $user_payments=$user->payments;
+        return view('admin.payments.paymentsview',compact('user','user_payments'));
     }
 }
