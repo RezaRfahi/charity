@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function()
     Route::prefix('payments')->group(function(){
         Route::get('/all',[AdminController::class,'allPayments'])->name('payments/all');
         Route::get('/user',[AdminController::class,'userPayments'])->name('payments/user');
+        Route::get('/view/{id}',[AdminController::class,'paymentsView'])->name('payments/view');
     });
     Route::prefix('adminsmanage')->group(function()
     {

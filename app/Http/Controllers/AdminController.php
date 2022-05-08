@@ -23,11 +23,13 @@ class AdminController extends Controller
         $admin=Auth::user();
         return view('admin.index',compact('admin','users','payments','sessionsCount','sumPay'));
     }
+
     public function calender()
     {
         $admin=Auth::user();
         return view('admin.calender.calender',compact('admin'));
     }
+
     public function memberView()
     {
         $users=User::all();
@@ -35,12 +37,14 @@ class AdminController extends Controller
         $admin=Auth::user();
         return view('admin.member.memberView',compact('admin','users'));
     }
+
     public function adminView()
     {
         $admins = User::whereHas('permissions')->get();
         $admin=Auth::user();
         return view('admin.adminManage.adminView',compact('admin','admins'));
     }
+
     public function adminAdd()
     {
         $users=User::query()->doesntHave('permissions')->get();
@@ -62,10 +66,18 @@ class AdminController extends Controller
         $admin=Auth::user();
         return view('admin.payments.allpayments',compact('admin','allPayments'));
     }
+
     public function userPayments()
     {
         $users=User::all();
         $admin=Auth::user();
         return view('admin.payments.userpayments',compact('admin','users'));
+    }
+
+    public function paymentsView($id)
+    {
+        Payment::query()->where('id',$id)->get();
+        $admin=Auth::user();
+        return view('admin.payments.paymentsview',compact('admin'));
     }
 }

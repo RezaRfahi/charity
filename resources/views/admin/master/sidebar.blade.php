@@ -120,7 +120,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="pages/examples/invoice.html" class="nav-link">
+                    <a href="{{route('payments/view',$admin->id)}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>پرداختی های شما</p>
                     </a>
