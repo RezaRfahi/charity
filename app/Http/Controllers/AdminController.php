@@ -62,4 +62,10 @@ class AdminController extends Controller
         $admin=Auth::user();
         return view('admin.payments.allpayments',compact('admin','allPayments'));
     }
+    public function userPayments()
+    {
+        $users=User::all();
+        $admin=Auth::user();
+        return view('admin.payments.userpayments',compact('admin','users'));
+    }
 }

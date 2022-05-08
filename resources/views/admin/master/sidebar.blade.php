@@ -126,7 +126,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="pages/examples/profile.html" class="nav-link">
+                    <a href="{{route('payments/user')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>پرداختهای کاربران</p>
                     </a>
