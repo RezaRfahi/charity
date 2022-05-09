@@ -20,10 +20,11 @@
                   <td><img src="{{$adminData->profile_photo_url}}" class="direct-chat-img" alt=""></td>
                   <td>{{$adminData->name}}</td>
                   <td>{{$adminData->email}}</td>
+                  <td><a href="#" class="btn btn-light">تغییر دسترسی</a></td>
                   <td>
                   @if (auth()->user()->id!=$adminData->id)
                   <form action="/deleteuser/{{$adminData->id}}" method="post">
-                <button class="btn btn-light" type="submit">حذف مدیر</button>
+                <button class="btn btn-danger" type="submit">حذف مدیر</button>
                 </form>
                 @endif
             </td>
