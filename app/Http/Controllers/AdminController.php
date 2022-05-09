@@ -73,4 +73,9 @@ class AdminController extends Controller
         $sum_payments=Payment::query()->where([['user_id',$id],['status','successful']])->sum('price');
         return view('admin.payments.paymentsview',compact('user','user_payments','sum_payments'));
     }
+
+    public function modifyAdmin($id)
+    {
+        return view('admin.adminManage.modifyAdmin');
+    }
 }

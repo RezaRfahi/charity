@@ -103,7 +103,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="/admin/calender" class="nav-link">
+                <a href="{{route('admin/calender')}}" class="nav-link">
                   <i class="nav-icon fa fa-calendar"></i>
                   <p>
                     تقویم

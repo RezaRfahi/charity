@@ -20,7 +20,7 @@
                   <td><img src="{{$adminData->profile_photo_url}}" class="direct-chat-img" alt=""></td>
                   <td>{{$adminData->name}}</td>
                   <td>{{$adminData->email}}</td>
-                  <td><a href="#" class="btn btn-light">تغییر دسترسی</a></td>
+                  <td><a href="{{route('adminmodify',$adminData->id)}}" class="btn btn-light">تغییر دسترسی</a></td>
                   <td>
                   @if (auth()->user()->id!=$adminData->id)
                   <form action="/deleteuser/{{$adminData->id}}" method="post">
