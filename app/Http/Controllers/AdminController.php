@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Session\Session;
@@ -76,6 +77,8 @@ class AdminController extends Controller
 
     public function modifyAdmin($id)
     {
-        return view('admin.adminManage.modifyAdmin');
+        $user=User::query()->find($id);
+        $permissions=Permission::all();
+        return view('admin.adminManage.modifyAdmin',compact('user','permissions'));
     }
 }

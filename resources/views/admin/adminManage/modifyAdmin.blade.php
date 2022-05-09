@@ -10,13 +10,39 @@
             <div class="card mb-3" style="max-width: 98%;margin-right: 2%">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="..." class="card-img" alt="...">
+                    <img src="{{$user->profile_photo_url}}"
+                    style="width: 20%;height:35%"
+                    class="img-circle elevation-2" alt="">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      <h5 class="card-title">{{$user->name}}</h5>
+                      <p class="card-text">{{$user->email}}</p><br>
+                      <p class="card-text">دسترسی های ادمین:</p>
+                      <form>
+                        @foreach ($permissions as $permission)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="{{$permission->id}}">
+                            <label class="form-check-label" for="inlineCheckbox1"> &nbsp;
+                                @switch($permission->name)
+                                    @case('adminManage')
+                                        مدیریت ادمین ها
+                                        @break
+                                        @case('memberManage')
+                                        مدیریت کاربر ها
+                                        @break
+                                        @case('informationManage')
+                                        مدیریت اطلاعات
+                                        @break
+                                @endswitch
+                            </label>
+
+                        </div>
+
+                        @endforeach
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">ذخیره</button>
+                    </form>
                     </div>
                   </div>
                 </div>
