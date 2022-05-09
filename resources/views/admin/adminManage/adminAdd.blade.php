@@ -13,18 +13,20 @@
             <table dir="ltr" id="membertable" class="table table-sm">
               <tbody>
               @foreach ($users as $user)
+              @if ($user->id!=auth()->user()->id)
               <tr>
                 <td><img src="{{$user->profile_photo_url}}" class="direct-chat-img" alt=""></td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>
-                @if ($user->id!=auth()->user()->id)
+
 
                 <a href="{{route('adminmodify',$user->id)}}" class="btn btn-light" type="submit">افزودن به مدیران</a>
 
-                @endif
+
             </td>
               </tr>
+              @endif
               @endforeach
             </tbody>
             </table>
