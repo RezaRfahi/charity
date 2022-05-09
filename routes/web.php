@@ -45,6 +45,7 @@ Route::prefix('admin')->group(function()
         Route::get('/view',[AdminController::class,'adminView'])->name('adminsview');
         Route::get('/add',[AdminController::class,'adminAdd'])->name('adminadd');
         Route::get('/modify/{id}',[AdminController::class,'modifyAdmin'])->name('adminmodify');
+        Route::post('/modify/{id}',[AdminController::class,'createOrUpadate'])->name('admin-insert');
         Route::delete('/delete/{id}',[AdminController::class,'destroy'])->name('admin-delete');
     });
     Route::prefix('membersmanage')->group(function()

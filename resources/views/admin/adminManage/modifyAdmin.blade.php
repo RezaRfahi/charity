@@ -19,10 +19,12 @@
                       <h5 class="card-title">{{$user->name}}</h5>
                       <p class="card-text">{{$user->email}}</p><br>
                       <p class="card-text">دسترسی های ادمین:</p>
-                      <form>
+                      <form action="{{route('admin-insert',$user->id)}}" method="POST">
+                          @csrf
+                          @method('post')
                         @foreach ($permissions as $permission)
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="{{$permission->id}}"
+                            <input class="form-check-input" name="{{$permission->name}}" type="checkbox"
                             @foreach ($user->permissions as $per)
                             @if ($per->id==$permission->id)
                             checked

@@ -89,4 +89,34 @@ class AdminController extends Controller
         DB::table('permission_user')->where('user_id',$id)->delete();
         return back();
     }
+
+    public function createOrUpadate(Request $request,$id)
+    {
+        $permissions_array=array();
+        if(isset($request->all()['adminManage'])){
+            DB::table('permission_user')->updateOrInsert(['permission_id'=>1,'user_id'=>$id]);
+        }
+        else
+        {
+            DB::table('permission_user')->where(['permission_id'=>1,'user_id'=>$id])->delete();
+        }
+
+        if(isset($request->all()['memberManage'])){
+            DB::table('permission_user')->updateOrInsert(['permission_id'=>2,'user_id'=>$id]);
+        }
+        else
+        {
+            DB::table('permission_user')->where(['permission_id'=>2,'user_id'=>$id])->delete();
+        }
+
+        if(isset($request->all()['informationManage'])){
+            DB::table('permission_user')->updateOrInsert(['permission_id'=>3,'user_id'=>$id]);
+        }
+        else
+        {
+            DB::table('permission_user')->where(['permission_id'=>3,'user_id'=>$id])->delete();
+        }
+
+        return back();
+    }
 }
