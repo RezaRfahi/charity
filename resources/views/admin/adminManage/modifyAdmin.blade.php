@@ -22,7 +22,13 @@
                       <form>
                         @foreach ($permissions as $permission)
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="{{$permission->id}}">
+                            <input class="form-check-input" type="checkbox" value="{{$permission->id}}"
+                            @foreach ($user->permissions as $per)
+                            @if ($per->id==$permission->id)
+                            checked
+                            @endif
+                            @endforeach
+                            >
                             <label class="form-check-label" for="inlineCheckbox1"> &nbsp;
                                 @switch($permission->name)
                                     @case('adminManage')
