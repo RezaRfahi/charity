@@ -23,7 +23,9 @@
                   <td><a href="{{route('adminmodify',$adminData->id)}}" class="btn btn-light">تغییر دسترسی</a></td>
                   <td>
                   @if (auth()->user()->id!=$adminData->id)
-                  <form action="/deleteuser/{{$adminData->id}}" method="post">
+                  <form action="{{route('admin-delete',$adminData->id)}}" method="post">
+                    @csrf
+                    @method('delete')
                 <button class="btn btn-danger" type="submit">حذف مدیر</button>
                 </form>
                 @endif

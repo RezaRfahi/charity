@@ -82,4 +82,11 @@ class AdminController extends Controller
         $permissions_user=DB::table('permission_user')->where('user_id',$id)->get();
         return view('admin.adminManage.modifyAdmin',compact('user','permissions','permissions_user'));
     }
+
+    public function destroy($id)
+    {
+        User::query()->find($id);
+        DB::table('permission_user')->where('user_id',$id)->delete();
+        return back();
+    }
 }
