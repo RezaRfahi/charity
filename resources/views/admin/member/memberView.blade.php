@@ -23,7 +23,9 @@
                 <td>
                 @if ($user->id!=auth()->user()->id)
 
-                <form action="/deleteuser/{{$user->id}}" method="post">
+                <form action="{{route('member-delete',$user->id)}}" method="post">
+                @csrf
+                @method('delete')
                 <button class="btn btn-light" type="submit">حذف کاربر</button>
                 </form>
 

@@ -42,13 +42,14 @@ Route::prefix('admin')->group(function()
     });
     Route::prefix('adminsmanage')->group(function()
     {
-        Route::get('view',[AdminController::class,'adminView'])->name('adminsview');
-        Route::get('add',[AdminController::class,'adminAdd'])->name('adminadd');
-        Route::get('modify/{id}',[AdminController::class,'modifyAdmin'])->name('adminmodify');
+        Route::get('/view',[AdminController::class,'adminView'])->name('adminsview');
+        Route::get('/add',[AdminController::class,'adminAdd'])->name('adminadd');
+        Route::get('/modify/{id}',[AdminController::class,'modifyAdmin'])->name('adminmodify');
     });
     Route::prefix('membersmanage')->group(function()
     {
-        Route::get('view',[AdminController::class,'memberView'])->name('membersview');
+        Route::get('/view',[AdminController::class,'memberView'])->name('membersview');
+        Route::delete('/delete/{id}',[UserController::class,'destroy'])->name('member-delete');
     });
 });
 
