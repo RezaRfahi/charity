@@ -49,7 +49,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $user_payments=Auth::user()->payments;
+        $user=Auth::user();
+        $user_payments=$user->payments;
         $sum_payments=Payment::query()->where([['user_id',Auth::user()->id],['status','successful']])->sum('price');
         return view('userpaymentsview',compact('user','user_payments','sum_payments'));
     }
