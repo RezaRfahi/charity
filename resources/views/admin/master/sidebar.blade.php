@@ -35,29 +35,6 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-user"></i>
-                  <p>
-                    مدیریت کاربران
-                    <i class="right fa fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('membersview')}}" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>مشاهده</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/charts/flot.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>افزودن</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
                   <i class="nav-icon fa fa-user-secret"></i>
                   <p>
                     مدیریت ادمین ها
@@ -81,37 +58,6 @@
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-table"></i>
-                  <p>
-                    اطلاعات
-                    <i class="fa fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/tables/simple.html" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>جداول ساده</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('admin/session')}}" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>نشست ها</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('admin/calender')}}" class="nav-link">
-                  <i class="nav-icon fa fa-calendar"></i>
-                  <p>
-                    تقویم
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
                   <i class="nav-icon fa fa-book"></i>
                   <p>
                     لیست ها
@@ -119,6 +65,12 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                        <a href="{{route('membersview')}}" class="nav-link">
+                          <i class="fa fa-circle-o nav-icon"></i>
+                          <p>لیست کاربران</p>
+                        </a>
+                  </li>
                   <li class="nav-item">
                     <a href="{{route('payments/view',auth()->user()->id)}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
@@ -138,6 +90,14 @@
                     </a>
                   </li>
                 </ul>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin/calender')}}" class="nav-link">
+                  <i class="nav-icon fa fa-calendar"></i>
+                  <p>
+                    تقویم
+                  </p>
+                </a>
               </li>
               </ul>
           </nav>
