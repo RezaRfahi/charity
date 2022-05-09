@@ -79,6 +79,7 @@ class AdminController extends Controller
     {
         $user=User::query()->find($id);
         $permissions=Permission::all();
-        return view('admin.adminManage.modifyAdmin',compact('user','permissions'));
+        $permissions_user=DB::table('permission_user')->where('user_id',$id)->get();
+        return view('admin.adminManage.modifyAdmin',compact('user','permissions','permissions_user'));
     }
 }
