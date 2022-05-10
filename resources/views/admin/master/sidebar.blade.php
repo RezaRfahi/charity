@@ -25,8 +25,14 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="/admin" class="nav-link active">
+                    <li class="nav-item has-treeview">
+                        <a href="/admin"
+                        @if (url()->current()==request()->getSchemeAndHttpHost().'/admin')
+                        class="nav-link active"
+                        @else
+                        class="nav-link"
+                        @endif
+                        >
                             <i class="nav-icon fa fa-dashboard"></i>
                             <p>
                                 داشبورد
@@ -36,7 +42,14 @@
                     @foreach (auth()->user()->permissions as $permission_user)
                         @if ($permission_user['pivot']['permission_id'] == 1)
                             <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
+                                <a href="#"
+                                @if (url()->current()==request()->getSchemeAndHttpHost().'/admin/adminsmanage/add'
+                                or
+                                url()->current()==request()->getSchemeAndHttpHost().'/admin/adminsmanage/view')
+                                    class="nav-link active"
+                                @else
+                                    class="nav-link"
+                                @endif>
                                     <i class="nav-icon fa fa-user-secret"></i>
                                     <p>
                                         مدیریت ادمین ها
@@ -44,7 +57,7 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
+                                    <li class="nav-item has-treeview">
                                         <a href="{{ route('adminsview') }}" class="nav-link">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>مشاهده</p>
@@ -61,7 +74,20 @@
                         @endif
                     @endforeach
                     <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
+                        <a href="#"
+                        @if (url()->current()==request()->getSchemeAndHttpHost().'/admin/membersmanage/view'
+                            or
+                            url()->current()==request()->getSchemeAndHttpHost().'/admin/payments/view/1'
+                            or
+                            url()->current()==request()->getSchemeAndHttpHost().'/admin/payments/user'
+                            or
+                            url()->current()==request()->getSchemeAndHttpHost().'/admin/payments/all'
+                            )
+                                class="nav-link active"
+                        @else
+                                class="nav-link"
+                        @endif
+                        >
                             <i class="nav-icon fa fa-book"></i>
                             <p>
                                 لیست ها
@@ -103,7 +129,13 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li
+                    @if(url()->current()==request()->getSchemeAndHttpHost().'/admin/calender')
+                        class="nav-link active"
+                    @else
+                        class="nav-link"
+                    @endif
+                    >
                         <a href="{{ route('admin/calender') }}" class="nav-link">
                             <i class="nav-icon fa fa-calendar"></i>
                             <p>
