@@ -50,18 +50,5 @@
 </div>
 </form>
 
-    <div class="p-6 border-t border-gray-200 md:border-l">
-        <div class="flex items-center">
-
-            <object data="{{asset('svg/list.svg')}}" class="w-8 h-8 text-gray-500"></object>
-            <a href="{{route('user/payments',auth()->user()->id)}}" target="_blank"><div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">لیست پرداختی</div></a>
-        </div>
-
-        <div class="ml-12">
-            <div class="mt-2 text-sm text-gray-500">
-                برای مشاهده لیست پرداخت های اخیر خود کلیک کنید
-            </div>
-        </div>
-    </div>
 </div>
 </form>

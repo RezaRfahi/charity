@@ -26,7 +26,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/index', [UserController::class, 'index'])->name('dashboard');
-    Route::get('/paymentslist/{id}', [UserController::class, 'show'])->name('user/payments');
+    Route::get('/paymentslist', [UserController::class, 'show'])->name('user/payments');
 
 
     Route::prefix('admin')->group(function () {
