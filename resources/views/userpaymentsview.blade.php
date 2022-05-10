@@ -29,11 +29,11 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    <strong>{{$user->name}}</strong><br>
+                    <strong>نام کاربری : {{$user->name}}</strong><br>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <strong>{{$user->email}}</strong><br>
+                    <strong>ایمیل : {{$user->email}}</strong><br>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
