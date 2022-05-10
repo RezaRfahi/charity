@@ -54,7 +54,7 @@
         <div class="flex items-center">
 
             <object data="{{asset('svg/list.svg')}}" class="w-8 h-8 text-gray-500"></object>
-            <a href="{{route('user/payments',auth()->user()->id)}}"><div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">لیست پرداختی</div></a>
+            <a href="{{route('user/payments',auth()->user()->id)}}" target="_blank"><div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">لیست پرداختی</div></a>
         </div>
 
         <div class="ml-12">

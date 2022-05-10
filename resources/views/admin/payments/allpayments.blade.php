@@ -8,12 +8,6 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="callout callout-info">
-              <h5><i class="fa fa-info"></i> نکته :</h5>
-              این صفحه مناسب برای پرینت طراحی شده است
-            </div>
-
-
             <!-- Main content -->
             <div class="invoice p-3 mb-3">
               <!-- title row -->
@@ -70,7 +64,7 @@
               bottom: 0.75%;
               position: fixed;">
                 <div class="col-12">
-                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> پرینت </a>
+                    <button target="_blank" class="btn btn-default" onclick="window.print()"><i class="fa fa-print"></i> پرینت </button>
                   </div>
               </div>
             </div>

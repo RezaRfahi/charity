@@ -1,12 +1,4 @@
-
-
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('ShamsiPour') }}
-        </h2>
-    </x-slot>
-
+<head>
 <!-- Font Awesome -->
 <link rel="stylesheet" href={{asset('font-awesome/css/font-awesome.min.css') }}>
 <!-- Theme style -->
@@ -16,7 +8,10 @@
 <!-- template rtl version -->
 <link rel="stylesheet" href={{asset('css/custom-style.css')}}>
 <!-- Content Wrapper. Contains page content -->
-
+</head>
+<body>
+<section class="content">
+    <div class="container-fluid">
         <div class="row">
           <div class="col-12">
 
@@ -54,7 +49,7 @@
                   <table class="table table-striped">
                     <thead>
                     <tr>
-                      <th>سریال #</th>
+                      <th>سریال پرداخت</th>
                       <th>قیمت</th>
                       <th>وضعیت</th>
                       <th>تاریخ</th>
@@ -101,7 +96,7 @@
               bottom: 0.75%;
               position: fixed;">
                 <div class="col-12">
-                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> پرینت </a>
+                    <button target="_blank" class="btn btn-default" onclick="window.print()"><i class="fa fa-print"></i> پرینت </button>
                 </div>
               </div>
             </div>
@@ -109,5 +104,6 @@
           </div><!-- /.col -->
         </div><!-- /.row -->
     <!-- /.content -->
-
-</x-app-layout>
+    </div>
+</section>
+</body>
