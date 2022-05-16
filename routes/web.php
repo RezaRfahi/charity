@@ -37,9 +37,9 @@ Route::middleware([
         Route::prefix('payments')
         ->middleware('admin:informationManage')
         ->group(function () {
-            Route::get('/all', [AdminController::class, 'allPayments'])->name('payments/all');
-            Route::get('/user', [AdminController::class, 'userPayments'])->name('payments/user');
-            Route::get('/view/{id}', [AdminController::class, 'paymentsView'])->name('payments/view');
+            Route::get('/all', [PaymentController::class, 'allPayments'])->name('payments/all');
+            Route::get('/user', [PaymentController::class, 'userPayments'])->name('payments/user');
+            Route::get('/view/{id}', [PaymentController::class, 'paymentsView'])->name('payments/view');
         });
         Route::prefix('adminsmanage')
         ->middleware('admin:adminManage')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Models\User;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,30 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function allPayments()
+    {
+        $allPayments = Payment::query()
+        ->with('user:name,id')
+        ->get();
+        return view('admin.payments.allpayments',compact('allPayments'));
+    }
+
+    public function userPayments()
+    {
+        $users=User::all();
+        return view('admin.payments.userpayments',compact('users'));
+    }
+
+    public function paymentsView($id)
+    {
+        $user=User::query()->find($id);
+        $user_payments=$user->payments;
+        $sum_payments=Payment::query()->where([['user_id',$id],['status','successful']])->sum('price');
+        return view('admin.payments.paymentsview',compact('user','user_payments','sum_payments'));
+    }
+
     public function index(Request $request)
     {
         dd($request->all());

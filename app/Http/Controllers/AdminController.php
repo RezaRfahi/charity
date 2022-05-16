@@ -53,27 +53,6 @@ class AdminController extends Controller
         return view('admin.info.session');
     }
 
-    public function allPayments()
-    {
-        $allPayments = Payment::query()
-        ->with('user:name,id')
-        ->get();
-        return view('admin.payments.allpayments',compact('allPayments'));
-    }
-
-    public function userPayments()
-    {
-        $users=User::all();
-        return view('admin.payments.userpayments',compact('users'));
-    }
-
-    public function paymentsView($id)
-    {
-        $user=User::query()->find($id);
-        $user_payments=$user->payments;
-        $sum_payments=Payment::query()->where([['user_id',$id],['status','successful']])->sum('price');
-        return view('admin.payments.paymentsview',compact('user','user_payments','sum_payments'));
-    }
 
     public function modifyAdmin($id)
     {
