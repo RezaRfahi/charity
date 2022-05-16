@@ -18,7 +18,7 @@ class PaymentFactory extends Factory
             "serial"=>Str::random(10),
             "status"=>$this->faker->randomElement(['pending' ,'successful', 'failed']),
             "user_id"=>User::all()->random()->id,
-            "price"=>rand(10000,100000000),
+            "price"=>rand(10000,1000000),
         ];
     }
 }
