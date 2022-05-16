@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/index', [UserController::class, 'index'])->name('dashboard');
     Route::get('/paymentslist', [UserController::class, 'show'])->name('user/payments');
+    Route::post('/payment', [PaymentController::class, 'index'])->name('user/pay');
 
 
     Route::prefix('admin')->group(function () {
