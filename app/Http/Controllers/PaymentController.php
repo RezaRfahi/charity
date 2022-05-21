@@ -40,8 +40,10 @@ class PaymentController extends Controller
     {
         $user=User::query()->find($id);
         $user_payments=$user->payments;
-        $sum_payments=Payment::query()->where([['user_id',$id],['status','successful']])->sum('price');
-        return view('admin.payments.paymentsview',compact('user','user_payments','sum_payments'));
+        $sum_payments=Payment::query()
+        ->where([['user_id',$id],['status','successful']])->sum('price');
+        return view('admin.payments.paymentsview',
+        compact('user','user_payments','sum_payments'));
     }
 
     public function index()
@@ -60,7 +62,7 @@ class PaymentController extends Controller
 
         return Pay::via('zarinpal')->callbackUrl(Route('payment.callback'))
         ->purchase($invoice,function($driver, $transactionId) use($invoice) {
-            Payment::query()->create([
+            Payment::create([
                'serial'=>$transactionId,
                'status'=>'pending',
                'user_id'=>auth()->id(),
@@ -78,11 +80,14 @@ class PaymentController extends Controller
             $receipt = Pay::via('zarinpal')->amount($factor->price)
             ->transactionId($factor->serial)->verify();
             // You can show payment referenceId to the user.
+            Payment::where('serial',$factor->serial)
+            ->update(['status'=>'successful']);
             echo $receipt->getReferenceId();
 
         } catch (InvalidPaymentException $exception) {
-
-            echo $exception->getMessage();
+            Payment::where('serial',$factor->serial)
+            ->update(['status'=>'failed']);
+            $exception->getMessage();
         }
     }
 
