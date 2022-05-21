@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Payment;
 use Shetabit\Multipay\Invoice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Shetabit\Payment\Facade\Payment as Pay;
 use Shetabit\Multipay\Exceptions\InvalidPaymentException;
 use Nette\Utils\Random;
@@ -82,7 +83,8 @@ class PaymentController extends Controller
             // You can show payment referenceId to the user.
             Payment::where('serial',$factor->serial)
             ->update(['status'=>'successful']);
-            echo $receipt->getReferenceId();
+            
+            return Redirect::route('dashboard')->with('payMessage','پرداخت با موفقیت انجام شد');
 
         } catch (InvalidPaymentException $exception) {
             Payment::where('serial',$factor->serial)
