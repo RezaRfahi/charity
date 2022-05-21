@@ -18,8 +18,8 @@ class AdminController extends Controller
     public function index()
     {
         $sessionsCount=DB::table('sessions')->select('*')->count();
-        $payments=Payment::all();
-        $sumPay=DB::table('payments')->where('status','successful')->sum('price');
+        $payments=Payment::query()->where('status','successful');
+        $sumPay=Payment::query()->where('status','successful')->sum('price');
         $users=User::all();
         return view('admin.index',compact('users','payments','sessionsCount','sumPay'));
     }
