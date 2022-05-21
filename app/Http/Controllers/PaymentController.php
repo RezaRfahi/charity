@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Redirect;
 use Shetabit\Payment\Facade\Payment as Pay;
 use Shetabit\Multipay\Exceptions\InvalidPaymentException;
 use Nette\Utils\Random;
-
+use UxWeb\SweetAlert\SweetAlert;
 
 class PaymentController extends Controller
 {
@@ -83,13 +83,13 @@ class PaymentController extends Controller
             // You can show payment referenceId to the user.
             Payment::where('serial',$factor->serial)
             ->update(['status'=>'successful']);
-            
-            return Redirect::route('dashboard')->with('payMessage','پرداخت با موفقیت انجام شد');
-
+            alert()->success('پرداخت با موفقیت انجام شد');
+            return Redirect::route('dashboard');
         } catch (InvalidPaymentException $exception) {
             Payment::where('serial',$factor->serial)
             ->update(['status'=>'failed']);
-            $exception->getMessage();
+            alert()->error($exception->getMessage());
+            return Redirect::route('dashboard');
         }
     }
 
