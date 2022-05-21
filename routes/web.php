@@ -28,7 +28,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/index', [UserController::class, 'index'])->name('dashboard');
     Route::get('/paymentslist', [UserController::class, 'show'])->name('user/payments');
-    Route::post('/payment', [PaymentController::class, 'index'])->name('user/pay');
+    Route::post('/payment', [PaymentController::class, 'create'])->name('user/pay');
+    Route::get('payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 
 
     Route::prefix('admin')->group(function () {

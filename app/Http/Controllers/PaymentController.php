@@ -6,7 +6,12 @@ use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\User;
 use App\Models\Payment;
+use Shetabit\Multipay\Invoice;
 use Illuminate\Http\Request;
+use Shetabit\Payment\Facade\Payment as Pay;
+use Shetabit\Multipay\Exceptions\InvalidPaymentException;
+use Nette\Utils\Random;
+
 
 class PaymentController extends Controller
 {
@@ -39,10 +44,9 @@ class PaymentController extends Controller
         return view('admin.payments.paymentsview',compact('user','user_payments','sum_payments'));
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        dd($request->all());
-       return back();
+
     }
 
     /**
@@ -50,9 +54,36 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $invoice = (new Invoice)->amount($request->price);
+
+        return Pay::via('zarinpal')->callbackUrl(Route('payment.callback'))
+        ->purchase($invoice,function($driver, $transactionId) use($invoice) {
+            Payment::query()->create([
+               'serial'=>$transactionId,
+               'status'=>'pending',
+               'user_id'=>auth()->id(),
+               'price'=> $invoice->getAmount()
+            ]);
+        })->pay()->render();
+
+    }
+
+    public function callback(Request $request){
+        $index=$request['Authority'];
+        $factor=Payment::query()->where('serial',$index)->first();
+
+        try {
+            $receipt = Pay::via('zarinpal')->amount($factor->price)
+            ->transactionId($factor->serial)->verify();
+            // You can show payment referenceId to the user.
+            echo $receipt->getReferenceId();
+
+        } catch (InvalidPaymentException $exception) {
+
+            echo $exception->getMessage();
+        }
     }
 
     /**

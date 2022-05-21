@@ -1,5 +1,7 @@
 <?php
 
+use Nette\Utils\Random;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -10,7 +12,7 @@ return [
     | You can switch to a different driver at runtime.
     |
     */
-    'default' => 'payping',
+    'default' => 'payir',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +169,7 @@ return [
             'apiPurchaseUrl' => 'https://api.payping.ir/v1/pay/',
             'apiPaymentUrl' => 'https://api.payping.ir/v1/pay/gotoipg/',
             'apiVerificationUrl' => 'https://api.payping.ir/v1/pay/verify/',
-            'merchantId' => '',
+            'merchantId' => env('PAY_TOKEN'),
             'callbackUrl' => 'http://yoursite.com/path/to',
             'description' => 'payment using payping',
         ],
@@ -252,8 +254,8 @@ return [
             'zaringateApiPaymentUrl' => 'https://www.zarinpal.com/pg/StartPay/:authority/ZarinGate',
             'zaringateApiVerificationUrl' => 'https://ir.zarinpal.com/pg/services/WebGate/wsdl',
 
-            'mode' => 'normal', // can be normal, sandbox, zaringate
-            'merchantId' => '',
+            'mode' => 'sandbox', // can be normal, sandbox, zaringate
+            'merchantId' => '82t1428174t72112t548104556u2735u5178',
             'callbackUrl' => 'http://yoursite.com/path/to',
             'description' => 'payment using zarinpal',
         ],
