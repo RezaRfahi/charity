@@ -71,7 +71,7 @@
                 <!-- /.col -->
               </div>
               <!-- /.row -->
-
+<hr>
               <div class="row">
                 <!-- /.col -->
                 <div class="col-6">
