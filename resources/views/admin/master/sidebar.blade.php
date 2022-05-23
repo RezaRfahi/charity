@@ -73,10 +73,25 @@
                             </li>
                         @endif
                     @endforeach
+                    @foreach (auth()->user()->permissions as $permission_user)
+                    @if ($permission_user['pivot']['permission_id'] == 2)
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('membersview') }}"
+                            @if (url()->current()==request()->getSchemeAndHttpHost().'/admin/membersmanage/view')
+                            class="nav-link active"
+                            @else
+                            class="nav-link"
+                            @endif
+                            >
+                                <i class="nav-icon fa fa-user"></i>
+                                <p>کاربران</p>
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
                     <li class="nav-item has-treeview">
                         <a href="#"
-                        @if (url()->current()==request()->getSchemeAndHttpHost().'/admin/membersmanage/view'
-                            or
+                        @if (
                             url()->current()==request()->getSchemeAndHttpHost().'/admin/payments/view/1'
                             or
                             url()->current()==request()->getSchemeAndHttpHost().'/admin/payments/user'
@@ -95,16 +110,7 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            @foreach (auth()->user()->permissions as $permission_user)
-                                @if ($permission_user['pivot']['permission_id'] == 2)
-                                    <li class="nav-item">
-                                        <a href="{{ route('membersview') }}" class="nav-link">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>لیست کاربران</p>
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
+
                             <li class="nav-item">
                                 <a href="{{ route('payments/view', auth()->user()->id) }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>

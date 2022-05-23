@@ -72,7 +72,8 @@ class AdminController extends Controller
     public function createOrUpadate(Request $request,$id)
     {
         $permissions_array=array();
-        if(isset($request->all()['adminManage'])){
+        if(isset($request->all()['adminManage']))
+        {
             DB::table('permission_user')->updateOrInsert(['permission_id'=>1,'user_id'=>$id]);
         }
         else
