@@ -62,7 +62,9 @@ class PaymentController extends Controller
         $invoice = (new Invoice)->amount($request->price);
 
         return Pay::via('zarinpal')->callbackUrl(Route('payment.callback'))
-        ->purchase($invoice,function($driver, $transactionId) use($invoice) {
+        // ->description($request->title)
+        ->purchase($invoice,function($driver, $transactionId)
+         use($invoice) {
             Payment::create([
                'serial'=>$transactionId,
                'status'=>'pending',

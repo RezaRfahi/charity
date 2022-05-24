@@ -33,7 +33,7 @@
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
-                <input type="number" name="price" id="price">
+                <input type="number" name="price" id="price" required>
             </div>
         </div>
     </div>
