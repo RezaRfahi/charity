@@ -26,30 +26,40 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/index', [UserController::class, 'index'])->name('dashboard');
-    Route::get('/paymentslist', [UserController::class, 'show'])->name('user/payments');
-    Route::post('/payment', [PaymentController::class, 'create'])->name('user/pay');
-    Route::get('payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/index', 'index')->name('dashboard');
+        Route::get('/paymentslist', 'show')->name('user/payments');
+});
 
+Route::controller(PaymentController::class)->group(function(){
+    Route::post('/payment', 'create')->name('user/pay');
+    Route::get('payment/callback', 'callback')->name('payment.callback');
+});
 
     Route::prefix('admin')->group(function () {
-        Route::get('/', [AdminController::class, 'index'])->name('admin/index');
-        Route::get('/calender', [AdminController::class, 'calender'])->name('admin/calender');
+        Route::controller(AdminController::class)->group(function(){
+            Route::get('/', 'index')->name('admin/index');
+            Route::get('/calender', 'calender')->name('admin/calender');
+        });
         Route::prefix('payments')
         ->middleware('admin:informationManage')
         ->group(function () {
-            Route::get('/all', [PaymentController::class, 'allPayments'])->name('payments/all');
-            Route::get('/user', [PaymentController::class, 'userPayments'])->name('payments/user');
-            Route::get('/view/{id}', [PaymentController::class, 'paymentsView'])->name('payments/view');
-        });
+            Route::controller(PaymentController::class)->group(function(){
+                Route::get('/all', 'allPayments')->name('payments/all');
+                Route::get('/user', 'userPayments')->name('payments/user');
+                Route::get('/view/{id}', 'paymentsView')->name('payments/view');
+            });
+            });
         Route::prefix('adminsmanage')
         ->middleware('admin:adminManage')
         ->group(function () {
-            Route::get('/view', [AdminController::class, 'adminView'])->name('adminsview');
-            Route::get('/add', [AdminController::class, 'adminAdd'])->name('adminadd');
-            Route::get('/modify/{id}', [AdminController::class, 'modifyAdmin'])->name('adminmodify');
-            Route::post('/modify/{id}', [AdminController::class, 'createOrUpadate'])->name('admin-insert');
-            Route::delete('/delete/{id}', [AdminController::class, 'destroy'])->name('admin-delete');
+            Route::controller(AdminController::class)->group(function(){
+                Route::get('/view', 'adminView')->name('adminsview');
+                Route::get('/add', [AdminController::class, 'adminAdd'])->name('adminadd');
+                Route::get('/modify/{id}', 'modifyAdmin')->name('adminmodify');
+                Route::post('/modify/{id}', 'createOrUpadate')->name('admin-insert');
+                Route::delete('/delete/{id}', 'destroy')->name('admin-delete');
+            });
         });
         Route::prefix('membersmanage')
         ->middleware('admin:memberManage')
